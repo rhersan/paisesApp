@@ -24,6 +24,7 @@ export class PorCapitalComponent  {
     this.paisService.getCapital(termino)
     .subscribe(
       (paises) => {
+        console.log(paises);
         this.countries = paises;
       }, 
       (err) => {

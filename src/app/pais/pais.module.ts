@@ -18,15 +18,16 @@ import { PaisInputComponent } from './components/pais-input/pais-input.component
     PorCapitalComponent, 
     PorPaisComponent, 
     PorRegionComponent, 
-    VerPaisComponent, PaisTablaComponent, PaisInputComponent
+    VerPaisComponent, 
+    PaisTablaComponent, 
+    PaisInputComponent
   ],
   exports:[
     // Se exportan porque se van a usar fuera del mismo
     PorCapitalComponent, 
     PorPaisComponent, 
     PorRegionComponent, 
-    VerPaisComponent,
-    PaisTablaComponent
+    VerPaisComponent
   ],
   imports: [
     CommonModule,

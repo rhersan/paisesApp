@@ -1,4 +1,4 @@
-<div *ngIf="!country;else divPais"
+<div *ngIf="!pais;else divPais"
     class="alert alert-info"    
 >
     Espere por favor...
@@ -8,7 +8,7 @@
 <ng-template #divPais>
     <div class="row">
         <div class="col-12">
-            <h1>Pais: <small>{{ country.name.common}}</small></h1>
+            <h1>Pais: <small>{{ pais.name.common}}</small></h1>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
             <h3>Bandera:</h3>
                 <img 
                     class="img-thumbnail"
-                    [src]="country.flags.png" 
+                    [src]="pais.flags.png" 
                 />       
         </div>
 
@@ -25,13 +25,13 @@
             <h3>Información</h3>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <strong>Población: </strong> {{ country.population | number}}
+                    <strong>Población: </strong> {{ pais.population | number}}
                 </li>
                 <li class="list-group-item">
-                    <strong>CCA2: </strong> {{ country.cca2}}
+                    <strong>CCA2: </strong> {{ pais.cca2}}
                 </li>
                 <li class="list-group-item">
-                    <strong>CCN3: </strong> {{ country.ccn3}}
+                    <strong>CCN3: </strong> {{ pais.ccn3}}
                 </li>
             </ul>
         </div>
@@ -42,16 +42,16 @@
     <h3>Traducciones</h3>
     <div class="row">
         <div class="col" >
-            <span class="badge bg-primary mr-1">{{ country.translations['ara'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['spa'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['fra'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['jpn'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['ita'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['por'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['pol'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['nld'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['hrv'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ country.translations['rus'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['ara'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['spa'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['fra'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['jpn'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['ita'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['por'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['pol'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['nld'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['hrv'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['rus'].common }}</span>
         </div>
     </div>
 

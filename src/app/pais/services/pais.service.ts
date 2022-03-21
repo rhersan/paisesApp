@@ -3,8 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Country } from '../interfaces/pais.interface';
 import { tap } from 'rxjs/operators';
-import { Params } from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +11,7 @@ export class PaisService {
   private urlApi: string = 'https://restcountries.com/v3.1'
   
   get httpParams(){
-    return new HttpParams().set('fields','name,capital,flags,population,cca2');
+    return new HttpParams().set('fields','name,capital,cca2,flags,population,cca2');
   }
 
   
@@ -28,7 +26,7 @@ export class PaisService {
   }
 
   getCapital(txtSeach: string):Observable<Country[]>{
-    const url = `${ this.urlApi }/capital/${txtSeach}`;
+    const url = `${ this.urlApi }/capital/${txtSeach}`;    
     return this.http.get<Country[]>(url, {params: this.httpParams});
   }
 
@@ -39,7 +37,9 @@ export class PaisService {
 
   getByRegion(txtTermino:string):Observable<Country[]>{
   
-    const url = `https://restcountries.com/v2/regionalbloc/${txtTermino}`;
+    const url = `${this.urlApi}/region/${txtTermino}`;
+    console.log(url);
+    console.log(this.httpParams);
     return this.http.get<Country[]>(url,{params: this.httpParams})
             .pipe(
               tap(console.log)

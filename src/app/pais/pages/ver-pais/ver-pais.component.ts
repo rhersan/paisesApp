@@ -16,7 +16,7 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class VerPaisComponent implements OnInit {
   // propiedad puede ser null
-  country     !:Country;
+  pais     !:Country;
 
   constructor(
     private activetedRoute: ActivatedRoute,
@@ -30,7 +30,7 @@ export class VerPaisComponent implements OnInit {
         switchMap( ({ id }) => this.paisService.getCountryById( id ) ),
         tap( console.log ) // resp => console.log
       )
-      .subscribe((pais)=> this.country = pais[0]);
+      .subscribe((pais)=> this.pais = pais[0]);
 
     // this.activetedRoute.params
     //   .subscribe( ({id}) => {

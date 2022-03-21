@@ -26,11 +26,6 @@
     </div>
     
     
-    
-    <div class="alert alert-danger" *ngIf="responseHttp">
-        No se encontró el termino {{regionActiva }}
-    </div>
-    
     <div *ngIf="countries.length > 0" class="row">
         <div class="col">
             <app-pais-tabla [countries]="countries"></app-pais-tabla>

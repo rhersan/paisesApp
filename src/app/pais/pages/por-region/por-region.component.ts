@@ -16,19 +16,7 @@ import { PaisService } from '../../services/pais.service';
 export class PorRegionComponent implements OnInit {
 
   regiones    : string[] = [
-    'EU',
-    'EFTA',
-    'CARICOM',
-    'PA',
-    'AU',
-    'USAN',
-    'EEU',
-    'AL',
-    'ASEAN',
-    'CAIS',
-    'CEFTA',
-    'NAFTA',
-    'SAARC'
+    'Africa','Americas','Asia','Europe','Oceania'
   ];
   regionActiva: string = '';
   responseHttp: boolean= false;
@@ -41,26 +29,18 @@ export class PorRegionComponent implements OnInit {
   }
 
   getClass(region: string){
-    return (region == this.regionActiva) ? 'btn btn-primary mr-1 mb-1' : 'btn btn-outline-primary mr-1 mb-1';
+    return (region == this.regionActiva) 
+            ? 'btn btn-primary mr-1 mb-1' 
+            : 'btn btn-outline-primary mr-1 mb-1';
   }
 
   activarRegion (region: string){
-    if(region==this.regionActiva)
-      return;
-    this.responseHttp = false;
+    if(region==this.regionActiva){return};
+
     this.regionActiva = region;
     this.countries = [];
-    this.paisService.getByRegion(this.regionActiva)
-      .subscribe(
-        (pais)=>{
-          this.countries = pais;
-        },
-        (err) => {
-          this.responseHttp = true;
-          this.countries = [];
-          console.log(err);
-        }
-      );
+    this.paisService.getByRegion(region)
+      .subscribe(pais => this.countries = pais);
 
   }
 }
