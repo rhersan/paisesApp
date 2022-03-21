@@ -1,29 +1,30 @@
+<div class="animate__animated animate__fadeIn animate__faster">
 
-<h2>
-    Por Capital
-</h2>
-<hr>
-
-<div class="row">
-    <div class="col">
-        <!-- Se manda a llamar buscar en por pais component -->
-        <!-- placeholder sin [] significa que es un valor string -->
-        <!-- con [] es que va a recibir un valor -->
-        <app-pais-input        
-            (onEnter)="buscar($event)"
-            placeholder="Buscar capital..."               
-        >
-        </app-pais-input>
+    <h2>Por Capital</h2>
+    <hr>
+    
+    <div class="row">
+        <div class="col">
+            <!-- Se manda a llamar buscar en por pais component -->
+            <!-- placeholder sin [] significa que es un valor string -->
+            <!-- con [] es que va a recibir un valor -->
+            <app-pais-input        
+                (onEnter)="buscar($event)"
+                placeholder="Buscar capital..."               
+            >
+            </app-pais-input>
+        </div>
     </div>
+    
+    <hr>
 </div>
 
-<hr>
 
 <div class="alert alert-danger" *ngIf="responseHttp">
     No se encontró el termino {{termino}}
 </div>
 
-<div class="row">
+<div *ngIf="countries.length > 0" class="row">
     <div class="col">
         <app-pais-tabla [countries]="countries"></app-pais-tabla>
     </div>
